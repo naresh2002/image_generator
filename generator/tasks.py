@@ -1,11 +1,12 @@
 import requests
 from celery import shared_task
+from decouple import config
 from .models import GeneratedImage
 import base64
 from django.core.files.base import ContentFile
 
 STABILITY_API_URL = 'https://api.stability.ai/v1/generation/stable-diffusion-xl-1024-v1-0/text-to-image'
-STABILITY_API_KEY = 'sk-fVY3pS7dXeVHlnNc83VWTW33wowvp2RmmroBWpzgDlkZeppL'
+STABILITY_API_KEY = config('STABILITY_API_KEY')
 
 @shared_task
 def generate_image_task(text_input):
