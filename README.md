@@ -85,3 +85,13 @@ The project is designed to manage user-submitted text prompts, trigger image gen
     ```bash
     python manage.py runserver
     ```
+
+10. Access the application by navigating to **http://127.0.0.1:8000** in your web browser.
+
+## Features
+
+1. **Image Generation:** Users can input text prompts to generate images using Stability AI.
+
+2. **Asynchronous Processing:** Image generation tasks are handled asynchronously using Celery and Redis, ensuring smooth operation without blocking the user interface.
+
+3. **Organized Display:** Generated images are displayed in descending order, with options to view all results.
