@@ -89,6 +89,20 @@ The project is designed to manage user-submitted text prompts, trigger image gen
 10. Access the application by navigating to **http://127.0.0.1:8000** in your web browser.
 
 
+## Adding Stability AI API Key
+
+1. Create a Stability AI Account:  
+    Visit [**Stability AI**](https://platform.stability.ai/) and create an account.
+
+2. Get Your API Key:  
+    Go to [**Stability AI**](https://platform.stability.ai/account/keys) Account Keys and copy your API key.
+
+3. Update the .env File:  
+    Paste the copied API key into your .env file as follows:
+    ```plaintext
+    STABILITY_API_KEY=your_api_key_here
+    ```
+
 ## URL Endpoints
 
 1. **Home Page** (/):  
