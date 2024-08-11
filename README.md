@@ -42,7 +42,7 @@ The project is designed to manage user-submitted text prompts, trigger image gen
     touch .env
     ```
 
-3. Write the following configuration in the `.env` file:  
+3. Write the following configuration in the `.env` file (check [below](#adding-stability-ai-api-key) how to get stability api key):  
     ```plaintext
     DATABASE_NAME={{DATABASE_NAME}}
     DATABASE_USER={{DATABASE_USER}}
