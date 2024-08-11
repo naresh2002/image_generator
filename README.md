@@ -119,7 +119,7 @@ The project is designed to manage user-submitted text prompts, trigger image gen
 Celery is configured to handle asynchronous tasks using Redis as the broker and result backend. The configuration is defined in **image_generator/celery.py** and **settings.py**.  
 [**This file**](image_generator/celery.py) contains the Celery application setup and configuration.  
 In [**settings.py**](image_generator/settings.py), we had configured Celery to use Redis as both the broker and result backend as:  
-    ```bash
+    ```plaintext
     CELERY_BROKER_URL = 'redis://localhost:6379/0'  # Redis as the broker
     CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'  # Redis to store task results
     ```
