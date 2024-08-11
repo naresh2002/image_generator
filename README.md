@@ -1,4 +1,4 @@
-# Image Generator Django Application
+# Image Generator
 A Django web application that allows users to generate multiple images from text inputs simultaneously using Stability AI's Text-to-Image API.
 Utilizes Django with Celery for handling asynchronous tasks and Redis as the message broker.
 Ensures proper request data validation, secure image generation, and organized display of generated images.
@@ -60,20 +60,20 @@ The project is designed to manage user-submitted text prompts, trigger image gen
     CREATE DATABASE {{DATABASE_NAME}};
     ```
 
-5. Install Redis and start the Redis server (ensure it's running on the default port 6379):  
-    ```bash
-    sudo apt-get install redis-server
-    sudo service redis-server start
-    ```
-
-6. Make migrations for the Django application:  
+5. Make migrations for the Django application:  
     ```bash
     python manage.py makemigrations
     ```
 
-7. Migrate schemas to the PostgreSQL database:  
+6. Migrate schemas to the PostgreSQL database:  
     ```bash
     python manage.py migrate
+    ```
+
+7. Install Redis and start the Redis server (ensure it's running on the default port 6379):  
+    ```bash
+    sudo apt-get install redis-server
+    sudo service redis-server start
     ```
 
 8. Start the Celery worker to handle image generation tasks:  
@@ -87,6 +87,28 @@ The project is designed to manage user-submitted text prompts, trigger image gen
     ```
 
 10. Access the application by navigating to **http://127.0.0.1:8000** in your web browser.
+
+
+## URL Endpoints
+
+1. **Home Page** (/):  
+    **Description**: Allows users to input text prompts to generate images. Users can add multiple prompts, and the text fields are validated for emptiness and length.
+
+2. **Generate Page** (/generate/):  
+    **Description**: Displays a message indicating that images are being generated. Users can click a button to view all generated images.
+
+3. **Show All Images Page** (/all/):  
+    **Description**: Displays all generated images in descending order of creation, showing the prompt used for generation and the time of creation.
+
+
+## Project Structure
+
+1. **Celery Configuration**: Handles the task queue for image generation using Celery and Redis.
+
+2. **Django Models**: Stores information about generated images, including the associated prompt and timestamp.
+
+3. **Frontend**: Simple HTML forms for user input and display of generated images, styled directly within the HTML files.
+
 
 ## Features
 
