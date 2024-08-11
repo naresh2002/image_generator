@@ -121,7 +121,7 @@ Celery is configured to handle asynchronous tasks using Redis as the broker and 
 In [**settings.py**](image_generator/settings.py), we had configured Celery to use Redis as both the broker and result backend as:  
     ```
     CELERY_BROKER_URL = 'redis://localhost:6379/0'  # Redis as the broker
-    ```
+    ```  
     ```
     CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'  # Redis to store task results
     ```
