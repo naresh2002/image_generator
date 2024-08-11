@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        .text-form {
+            margin-bottom: 10px;
+        }
+        .delete-btn {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .generate-btn:disabled {
+            background-color: gray;
+            cursor: not-allowed;
+        }
+        .generate-btn {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        #formset {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    {% include 'generator/navbar.html' %}
+    <h1>Image Generator</h1>
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ formset.management_form }}
+        <div id="formset">
+            {% for form in formset %}
+                <div class="text-form">
+                    {{ form.text_input }}
+                    {% if form.DELETE %}
+                        {{ form.DELETE }}
+                    {% endif %}
+                    <button type="button" class="delete-btn">Delete</button>
+                </div>
+            {% endfor %}
+        </div>
+        <button type="button" id="add-btn">Add Another Text</button>
+        <button type="submit" class="generate-btn" disabled>Generate Images</button>
+    </form>
+
+    <script src="{% static 'generator/script.js' %}"></script>
+</body>
+</html>

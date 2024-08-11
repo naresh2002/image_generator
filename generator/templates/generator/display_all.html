@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Generated Images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 1200px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .image-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .image-item {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 10px;
+            text-align: center;
+            max-width: 200px;
+        }
+        .image-item img {
+            max-width: 100%;
+            border-radius: 4px;
+        }
+        .image-item p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    {% include 'generator/navbar.html' %}
+    <div class="container">
+        <h1>All Generated Images</h1>
+        <p align="center">If you are not seeing all your generated images please.</p>
+        <div class="image-grid">
+            {% for image in images %}
+                <div class="image-item">
+                    <img src="{{ image.image.url }}" alt="{{ image.text_input }}">
+                    <p>{{ image.text_input }}</p>
+                    <p>Created at: {{ image.created_at }}</p>
+                </div>
+            {% empty %}
+                <p>No images generated yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
